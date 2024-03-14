@@ -48,6 +48,15 @@
     margin-right: 0;
   }
 
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    border: 1px solid gray;
+    margin: 0 .625rem;
+    padding: 1.125rem 2rem;
+  }
+
   footer {
     padding: 0 15px;
   }
@@ -76,29 +85,41 @@
 <body>
 
   <div class="wrapper">
+   
+    <section class="columns">
+      <div class="columns">
+        <button id="btn1">btn1</button>
+        <button id="btn2">btn2</button>
+        <button id="btn3">btn3</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="wrapper">
 
     <header>
-      <h1>3 Column Responsive Layout</h1>
+      <h1>Jquery examples</h1>
     </header>
       
   <section class="columns">
     
     <div class="column" id="panel1">
-      <h2>1st Content Area</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae?</p>
+      <p>panel1, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae?</p>
+      <div class="panel-body" style="display: none;">content</div>
     </div>
     
     <div class="column" id="panel2">
-      <h2>2nd Content Area</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum.</p>
+      <p>panel2, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum.</p>
+      <div class="panel-body" style="display: none;">content</div>
     </div>
     
     <div class="column" id="panel3">
-      <h2>3rd Content Area</h2>
-      <p>Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto cum praesentium voluptatibus recusandae?</p>
+      <p>panel3, Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto cum praesentium voluptatibus recusandae?</p>
+      <div class="panel-body" style="display: none;">content</div>
     </div>
-    
-  </section>	
+
+  </section>
     
     <footer>
       <h3>Footer</h3>
@@ -111,19 +132,110 @@
   <script>
     $(document).ready(function() {
       
-      $("#panel1").hide(300).show(1000).hide(300).show(1000);
-      
-      // $("#panel2").fadeOut(1000).delay(1000).fadeIn(1000);
+      // ------------------------------------------------
+      // Applies various jQuery effects to manipulate the visibility and style of HTML elements with the IDs panel1 and panel3, creating animations and modifying their appearance
 
+      // $("#panel1").hide(300).show(1000).hide(300).show(1000);
+
+      // $("#panel2").fadeOut(1000).delay(1000).fadeIn(1000);
       // $("#panel3").slideUp(1000).delay(1000).slideDown(1000);
 
-      $("#panel3").fadeToggle(1000).fadeToggle(1000);
+      // $("#panel3").fadeToggle(1000).fadeToggle(1000);
 
-      $("#panel3").css({
-        color:'red',
-        fontSize:'20px',
-        fontweight:'bold'
-      });
+      // $("#panel3").css({
+      //   color:'red',
+      //   fontSize:'20px',
+      //   fontweight:'bold'
+      // });
+
+      // $("#btn1").html("my button");
+
+      // $("#panel1").html("my button <strong>my button</strong>");
+
+      // ------------------------------------------------
+
+      // ------------------------------------------------
+      //  Event Binding - jQuery
+
+        // Button Click Toggle Panel: When button #btn1 is clicked, it toggles the visibility of panel #panel1
+        // $("#btn1").on("click", function() {
+        //   $("#panel1").toggle();
+        // });
+
+        // Button Click Slide Toggle Panel: When button #btn1 is clicked, it slides #panel1 up or down with a duration of 200 milliseconds.
+        // $("#btn1").on("click", function() {
+        //   $("#panel1").slideToggle(200);
+        // });
+
+        // Panel Click Slide Toggle Panel: When panel #panel1 is clicked, it slides itself up or down with a duration of 200 milliseconds.
+        // $("#panel1").on("click", function() {
+        //   $("#panel1").slideToggle(200);
+        // });
+
+        // Panel Click Fade Out Panel: When panel #panel1 is clicked, it fades out with a duration of 200 milliseconds.
+        // $("#panel1").on("click", function() {
+        //   $("#panel1").fadeOut(200);
+        // });
+
+        // Button Click Fade Toggle Panel: When button #btn1 is clicked, it toggles the visibility of panel #panel1 with a fade effect over a duration of 200 milliseconds. Similar actions apply to #btn2 and #btn3 for their respective panels.
+        // $("#btn1").on("click", function() {
+        //   $("#panel1").fadeToggle(200);
+        // })
+        // $("#btn2").on("click", function() {
+        //   $("#panel2").fadeToggle(200);
+        // })
+        // $("#btn3").on("click", function() {
+        //   $("#panel3").fadeToggle(200);
+        // })
+
+        // Button Hover Fade Toggle Panel: When mouse hovers over button #btn1, it toggles the visibility of panel #panel1 with a fade effect over a duration of 200 milliseconds. Similar actions apply to #btn2 and #btn3 for their respective panels.
+        // $("#btn1").on("mouseover", function() {
+        //   $("#panel1").fadeToggle(200);
+        // })
+        // $("#btn2").on("mouseover", function() {
+        //   $("#panel2").fadeToggle(200);
+        // })
+        // $("#btn3").on("mouseover", function() {
+        //   $("#panel3").fadeToggle(200);
+        // })
+
+        // hovering makes panels disappear, and clicking makes them appear
+        // $("#btn1").on("mouseover", function() {
+        //   $("#panel1").fadeOut(200);
+        // })
+        // $("#btn2").on("mouseover", function() {
+        //   $("#panel2").fadeToggle(200);
+        // })
+        // $("#btn3").on("mouseover", function() {
+        //   $("#panel3").fadeOut(200);
+        // })
+        // $("#btn1").on("click", function() {
+        //   $("#panel1").fadeIn(200);
+        // })
+        // $("#btn2").on("click", function() {
+        //   $("#panel2").fadeIn(200);
+        // })
+        // $("#btn3").on("click", function() {
+        //   $("#panel3").fadeIn(200);
+        // })
+
+        // Sets the HTML content of the element with the class .panel-body inside the element with the ID #panel1 to "amazing content" when #btn1 is clicked.
+        $("#btn1").on("click", function() {
+          $("#panel1 .panel-body").html("amazing content");
+        })
+
+        // Toggles the visibility of the elements with the class .panel-body inside the elements with the IDs #panel1, #panel2, and #panel3 respectively when #btn1, #btn2, and #btn3 are clicked.
+        $("#btn1").on("click", function() {
+          $("#panel1 .panel-body").toggle();
+        })
+        $("#btn2").on("click", function() {
+          $("#panel2 .panel-body").toggle();
+        })
+        $("#btn3").on("click", function() {
+          $("#panel3 .panel-body").toggle();
+        })
+      
+      // ------------------------------------------------
 
     });
   </script>
