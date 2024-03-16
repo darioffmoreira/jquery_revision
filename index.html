@@ -88,9 +88,9 @@
    
     <section class="columns">
       <div class="columns">
-        <button id="btn1">btn1</button>
-        <button id="btn2">btn2</button>
-        <button id="btn3">btn3</button>
+        <button class="panel-button" id="btn1" data-panelId="panel1">btn1</button>
+        <button class="panel-button" id="btn2" data-panelId="panel2">btn2</button>
+        <button class="panel-button" id="btn3" data-panelId="panel3">btn3</button>
       </div>
     </section>
 
@@ -220,9 +220,9 @@
         // })
 
         // Sets the HTML content of the element with the class .panel-body inside the element with the ID #panel1 to "amazing content" when #btn1 is clicked.
-        $("#btn1").on("click", function() {
-          $("#panel1 .panel-body").html("amazing content");
-        })
+        // $("#btn1").on("click", function() {
+        //   $("#panel1 .panel-body").html("amazing content");
+        // })
 
         // Toggles the visibility of the elements with the class .panel-body inside the elements with the IDs #panel1, #panel2, and #panel3 respectively when #btn1, #btn2, and #btn3 are clicked.
         // $("#btn1").on("click", function() {
@@ -238,7 +238,14 @@
       // ------------------------------------------------
 
       // ------------------------------------------------
-      //  Writing Smarter, Better Code - jQuery
+      // Writing Smarter, Better Code - jQuery
+      // Do the same thing previously, but target by atribute
+      // DRY: dont repeate your self!
+
+      $(".panel-button").on("click", function() {
+        let penelId = $(this).attr("data-panelId");
+        alert(penelId);
+      });
       
       // ------------------------------------------------
 
