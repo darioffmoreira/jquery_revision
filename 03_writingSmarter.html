@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #666;
+  }
+
+  /* STRUCTURE */
+  .wrapper {
+    padding: 5px;
+    max-width: 960px;
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  header {
+    padding: 0 15px;
+  }
+
+  .columns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 5px 0;
+  }
+
+  .column {
+    flex: 1;
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 10px;
+  }
+  .column:first-child {
+    margin-left: 0;
+  }
+  .column:last-child {
+    margin-right: 0;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    border: 1px solid gray;
+    margin: 0 .625rem;
+    padding: 1.125rem 2rem;
+  }
+
+  footer {
+    padding: 0 15px;
+  }
+
+  @media screen and (max-width: 980px) {
+    .columns .column {
+      margin-bottom: 5px;
+      flex-basis: 40%;
+    }
+    .columns .column:nth-last-child(2) {
+      margin-right: 0;
+    }
+    .columns .column:last-child {
+      flex-basis: 100%;
+      margin: 0;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    .columns .column {
+      flex-basis: 100%;
+      margin: 0 0 5px 0;
+    }
+  }
+
+</style>
+<body>
+
+  <div class="wrapper">
+   
+    <section class="columns">
+      <div class="columns">
+        <button class="panel-button" id="btn1" data-panelId="panel1">btn1</button>
+        <button class="panel-button" id="btn2" data-panelId="panel2">btn2</button>
+        <button class="panel-button" id="btn3" data-panelId="panel3">btn3</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="wrapper">
+
+    <header>
+      <h1>Jquery examples</h1>
+    </header>
+      
+  <section class="columns">
+    
+    <div class="column" style="display: none;" id="panel1">
+      <p>panel1, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae?</p>
+      <div class="panel-body" style="display: none;">content</div>
+    </div>
+    
+    <div class="column" style="display: none;" id="panel2">
+      <p>panel2, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum.</p>
+      <div class="panel-body" style="display: none;">content</div>
+    </div>
+    
+    <div class="column" style="display: none;" id="panel3">
+      <p>panel3, Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto cum praesentium voluptatibus recusandae?</p>
+      <div class="panel-body" style="display: none;">content</div>
+    </div>
+
+  </section>
+    
+    <footer>
+      <h3>Footer</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, porro. Doloribus vitae non dolores modi dolorum commodi perspiciatis dicta nostrum minus esse, totam officia, quibusdam amet quas tempora? Voluptatibus, esse.</p>
+    </footer>
+  
+  </div>
+
+  <script src="jquery.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      // ------------------------------------------------
+      // Writing Smarter, Better Code - jQuery
+      // Do the same thing previously, but target by atribute
+      // addded class="column" style="display: none;"
+
+      // static way of writing
+      // $(".panel-button").on("click", function() {
+      //   let panelId = $(this).attr("data-panelId");
+      //   // $("#panel1").toggle();
+      //   alert(panelId);
+      // });
+
+      // add new content
+      var content = "My new awesome content";
+
+      $(".panel-button").on("click", function() {
+          let panelId = $(this).attr("data-panelid");
+          $("#" + panelId).toggle();
+          $("#"+panelId+" .panel-body").css("display","block");
+          $("#"+panelId+" .panel-body").html(content);
+      });
+
+    });
+  </script>
+</body>
+</html>
