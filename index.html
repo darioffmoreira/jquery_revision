@@ -243,13 +243,16 @@
       // addded class="column" style="display: none;"
 
       // static way of writing
-      $(".panel-button").on("click", function() {
-        let panelId = $(this).attr("data-panelId");
-        // $("#panel1").toggle();
-        alert(panelId);
-      });
+      // $(".panel-button").on("click", function() {
+      //   let panelId = $(this).attr("data-panelId");
+      //   // $("#panel1").toggle();
+      //   alert(panelId);
+      // });
 
-      
+      $(".panel-button").on("click", function() {
+          let panelId = $(this).attr("data-panelid");
+          $("#" + panelId).toggle();
+      });
       
       // ------------------------------------------------
 
