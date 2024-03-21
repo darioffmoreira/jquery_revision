@@ -104,17 +104,17 @@
       
   <section class="columns">
     
-    <div class="column" id="panel1">
+    <div class="column" style="display: none;" id="panel1">
       <p>panel1, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae?</p>
       <div class="panel-body" style="display: none;">content</div>
     </div>
     
-    <div class="column" id="panel2">
+    <div class="column" style="display: none;" id="panel2">
       <p>panel2, Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum.</p>
       <div class="panel-body" style="display: none;">content</div>
     </div>
     
-    <div class="column" id="panel3">
+    <div class="column" style="display: none;" id="panel3">
       <p>panel3, Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto cum praesentium voluptatibus recusandae?</p>
       <div class="panel-body" style="display: none;">content</div>
     </div>
@@ -240,12 +240,16 @@
       // ------------------------------------------------
       // Writing Smarter, Better Code - jQuery
       // Do the same thing previously, but target by atribute
-      // DRY: dont repeate your self!
+      // addded class="column" style="display: none;"
 
+      // static way of writing
       $(".panel-button").on("click", function() {
-        let penelId = $(this).attr("data-panelId");
-        alert(penelId);
+        let panelId = $(this).attr("data-panelId");
+        // $("#panel1").toggle();
+        alert(panelId);
       });
+
+      
       
       // ------------------------------------------------
 
