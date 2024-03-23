@@ -63,69 +63,69 @@
             <li class="slide slide1">slide1</li>
         </ul>
     </div>
+
+    <div class="controls">
+      <button id="pauseBtn">Pause</button>
+    </div>
   </div>
   <script src="jquery.js"></script>
   <script>
-    'use strict';
-
     $(function () {
-  
-      // Configuration options
       let widthSlider = 720;
       let animationSpeed = 3000;
       let pause = 1000;
       let currentSlide = 1;
-      
-      // Cache DOM
       let $slider = $("#slider");
       let $slideContainer = $slider.find(".slides");
       let $slides = $slideContainer.find(".slide");
-
-      var interval;
-
+      let interval;
+      let isPaused = false;
+  
       function startSlider() {
-        // Clear previous interval to prevent multiple intervals running simultaneously
         clearInterval(interval);
-        
-        console.log("Slider started");
-
-        // Set interval to automatically animate slider
         interval = setInterval(function() {
-          console.log("Animating slider");
-
           $slideContainer.animate({marginLeft: `-=${widthSlider}`}, animationSpeed, function() {
-            console.log("Slider animation complete");
-
             currentSlide++;
-            console.log("Current slide:", currentSlide);
-            
             if(currentSlide === $slides.length) {
-              console.log("Reached last slide, resetting to slide 1");
               currentSlide = 1;
               $slideContainer.css("margin-left", 0);
             }
+            console.log("Slide transition completed. Current slide: ", currentSlide);
           });
         }, pause);
-      };
-
+        isPaused = false;
+        $("#pauseBtn").text("Pause");
+        console.log("Slider started.");
+      }
+  
       function stopSlider() {
         clearInterval(interval);
-        console.log("Slider stopped");
+        isPaused = true;
+        $("#pauseBtn").text("Continue");
+        console.log("Slider stopped.");
       }
-      
-      // Listen for mouseenter and pause, mouseleave and resume
+  
       $slider.on("mouseenter", function() {
-        console.log("Mouse entered slider area, stopping slider");
         stopSlider();
+        console.log("Slider paused on mouse enter.");
       }).on("mouseleave", function() {
-        console.log("Mouse left slider area, starting slider");
         startSlider();
+        console.log("Slider resumed on mouse leave.");
       });
-
-      // Start slider initially
-      startSlider();
+  
+      $("#pauseBtn").on("click", function() {
+        if (isPaused) {
+          startSlider();
+        } else {
+          stopSlider();
+        }
+      });
+  
+      startSlider(); // Start slider initially
+      console.log("Slider initialized.");
     });
-
   </script>
+  
+  
 </body>
 </html>

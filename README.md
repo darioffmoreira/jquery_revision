@@ -46,25 +46,7 @@ This HTML file showcases various DOM traversal techniques using jQuery. It demon
 
 ### `05_buildingTabPanelWidget.html`: An example file demonstrating the implementation of a tab panel widget using jQuery.
 
-#### Tab Panels Implementation Guide
-
-1. **Assess HTML Structure**: Ensure that the HTML structure includes tabs and panels. The `.tab-panels` class should serve as the container for both tabs and panels, with each tab having a corresponding panel.
-2. **Include jQuery Library**: Before diving into the JavaScript code, make sure to include the jQuery library in the HTML file, either within the `<head>` section or just before the closing `</body>` tag.
-3. **Write JavaScript Code**: Proceed by writing the provided JavaScript code within a `<script>` tag in the HTML file or within a separate JavaScript file.
-4. **Understanding the Code**: Analyze each part of the JavaScript code:
-   - Select all `<li>` elements within `.tabs` class that are children of `.tab-panels`.
-   - Attach a click event handler to each of these `<li>` elements.
-   - Inside the click event handler function, find the closest parent element with class `.tab-panels` and assign it to the `$panel` variable.
-   - Remove the `active` class from all `<li>` elements inside `.tabs` class within the current panel.
-   - Add the `active` class to the clicked tab.
-   - Get the value of the `rel` attribute of the clicked tab and store it in the `panelToShow` variable.
-   - Slide up the panel that is currently active within the current panel.
-   - Define a function `showNextPanel` to handle the slide animation of the next panel.
-   - Inside `showNextPanel` function, remove the `active` class from the panel that was just hidden, slide down the panel identified by `panelToShow`, and add the `active` class to the newly shown panel.
-5. **Testing**: Save the changes and test the tabs functionality in the browser to ensure it works as expected.
-6. **Debugging**: In case of any issues, use browser developer tools to inspect console errors or log messages that might help identify and fix any errors.
-7. **Refinement**: Enhance the appearance and behavior of the tabs and panels using CSS and additional JavaScript/jQuery as needed.
-8. **Documentation**: Optionally, document the code to make it easier for others (or yourself in the future) to understand how it works. This could include comments within the code itself or a separate README file explaining the usage and functionality.
+### `06_buildingJqueryImageSlider.html`: An example file showcasing the implementation of a jQuery image slider.
 
 ## Contributing
 
