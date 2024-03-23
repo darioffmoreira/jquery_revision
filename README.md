@@ -28,13 +28,25 @@ One of the highlights of this project is the implementation of a tab panel widge
 
 ## Project Structure
 
-- `01_manipulation.html`: Demonstrates jQuery manipulation methods.
-- `02_event-binding.html`: Illustrates event binding with jQuery.
-- `03_writingSmarter.html`: Showcases techniques for writing smarter jQuery code.
-- `04_domTraversal.html`: Explores DOM traversal methods provided by jQuery.
-- `05_buildingTabPanelWidget.html`: An example file demonstrating the implementation of a tab panel widget using jQuery.
+### `01_manipulation.html`: Demonstrates jQuery manipulation methods.
 
-### Tab Panels Implementation Guide
+This HTML file demonstrates various jQuery manipulation techniques to modify the visibility and style of HTML elements dynamically.
+
+### `02_event-binding.html`: Illustrates event binding with jQuery.
+
+This HTML file showcases various event binding techniques using jQuery. It demonstrates how to bind events to buttons and panels to trigger specific actions, such as toggling visibility, sliding up/down, or fading in/out.
+
+### `03_writingSmarter.html`: Showcases techniques for writing smarter jQuery code.
+
+This HTML file demonstrates how to write smarter and more efficient code using jQuery. It focuses on targeting elements by attributes and improving code readability and maintainability.
+
+### `04_domTraversal.html`: Explores DOM traversal methods provided by jQuery.
+
+This HTML file showcases various DOM traversal techniques using jQuery. It demonstrates how jQuery can be utilized to select, manipulate, and navigate through DOM elements efficiently. The file includes examples of selecting elements, filtering based on conditions, navigating parent-child relationships, and handling events. Each example is commented to explain its purpose and functionality, providing insights into how jQuery simplifies DOM manipulation tasks.
+
+### `05_buildingTabPanelWidget.html`: An example file demonstrating the implementation of a tab panel widget using jQuery.
+
+#### Tab Panels Implementation Guide
 
 1. **Assess HTML Structure**: Ensure that the HTML structure includes tabs and panels. The `.tab-panels` class should serve as the container for both tabs and panels, with each tab having a corresponding panel.
 2. **Include jQuery Library**: Before diving into the JavaScript code, make sure to include the jQuery library in the HTML file, either within the `<head>` section or just before the closing `</body>` tag.
