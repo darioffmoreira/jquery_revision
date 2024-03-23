@@ -98,11 +98,15 @@
   <script>
     $(function() {
 
+      // Add a click event handler to all <li> elements within ".tabs" that are children of ".tab-panels"
       $(".tab-panels .tabs li").on("click", function(e) {
+        // Remove the "active" class from the previously active <li> element
         $(".tab-panels .tabs li.active").removeClass("active");
+        // Add the "active" class to the clicked <li> element
         $(this).addClass("active");
 
         // figure out which panel to show
+        // Get the value of the "rel" attribute of the clicked <li> element
         let panelToShow = $(this).attr("rel");
         // alert(panelToShow);
 
@@ -111,16 +115,18 @@
         ** Slide up all panels that have the ".panel.active" class within ".tab-panels"
         ** This is done over 300 milliseconds to give a sliding animation effect
         */
-        $(".tab-panels .panel.active").slideUp(300, function () {
+        $(".tab-panels .panel.active").slideUp(300, showNextPanel);
+
+        // show new panel
+        function showNextPanel() {
+          // Remove the "active" class from the panel that was just slid up
           $(this).removeClass("active");
           // After the slide up animation is complete, slide down the panel with the ID stored in the variable "panelToShow"
           $("#" + panelToShow).slideDown(300, function () {
             // After the panel slides down, add the "active" class to it
             $(this).addClass("active");
           });
-        });
-
-        // show new panel
+        }
 
       });
 
