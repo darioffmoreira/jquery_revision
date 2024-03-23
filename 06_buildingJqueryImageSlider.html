@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Slider</title>
   <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
     #slider {
         width: 720px;
         height: 400px;
@@ -19,12 +26,18 @@
         padding: 0;
     }
 
+    ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
     #slider .slide {
         float: left;
         list-style-type: none;
         width: 720px;
         height: 400px;
-        color: white;
     }
 
     .slide1 {background: red;}
@@ -56,37 +69,62 @@
     'use strict';
 
     $(function () {
-      
-      // configuration options
+  
+      // Configuration options
       let widthSlider = 720;
-      let animationSpeed = 1000;
+      let animationSpeed = 3000;
       let pause = 1000;
       let currentSlide = 1;
       
-      // cache DOM
+      // Cache DOM
       let $slider = $("#slider");
       let $slideContainer = $slider.find(".slides");
       let $slides = $slideContainer.find(".slide");
 
-      setInterval(function() {
-        $slideContainer.animate({marginLeft: `-=${widthSlider}`}, animationSpeed, function() {
-          currentSlide++;
-          if(currentSlide === $slides.length) {
-            currentSlide = 1;
-            $slideContainer.css("margin-left", 0);
-          }
-        });
-      }, pause);
+      var interval;
 
+      function startSlider() {
+        // Clear previous interval to prevent multiple intervals running simultaneously
+        clearInterval(interval);
+        
+        console.log("Slider started");
+
+        // Set interval to automatically animate slider
+        interval = setInterval(function() {
+          console.log("Animating slider");
+
+          $slideContainer.animate({marginLeft: `-=${widthSlider}`}, animationSpeed, function() {
+            console.log("Slider animation complete");
+
+            currentSlide++;
+            console.log("Current slide:", currentSlide);
+            
+            if(currentSlide === $slides.length) {
+              console.log("Reached last slide, resetting to slide 1");
+              currentSlide = 1;
+              $slideContainer.css("margin-left", 0);
+            }
+          });
+        }, pause);
+      };
+
+      function stopSlider() {
+        clearInterval(interval);
+        console.log("Slider stopped");
+      }
+      
+      // Listen for mouseenter and pause, mouseleave and resume
+      $slider.on("mouseenter", function() {
+        console.log("Mouse entered slider area, stopping slider");
+        stopSlider();
+      }).on("mouseleave", function() {
+        console.log("Mouse left slider area, starting slider");
+        startSlider();
+      });
+
+      // Start slider initially
+      startSlider();
     });
-
-    // setInterval
-      // animate margin-left
-      // if its last slide, go to position 1(0px)
-
-      // listen for mousenter and pause
-
-      // resume on mouseleave
 
   </script>
 </body>
