@@ -9,15 +9,17 @@
     body {
       background: #fafafa;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #333;
+      color: #fff;
+      text-align: center;
     }
 
     .tab-panels ul {
         margin: 0;
         padding: 0;
+        text-align: center;
     }
 
-    .tab-panels ul li {
+    .tab-panels ul.tabs li {
         list-style-type: none;
         display: inline-block;
         background: #999;
@@ -27,6 +29,18 @@
         color: #fff;
         font-weight: 200;
         cursor: pointer;
+    }
+
+    .panel ul li {
+      list-style-type: none;
+      display: inline-block;
+      background: #12ea81;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 10%;
+      color: #fff;
+      font-weight: 200;
+      cursor: pointer;
     }
     
     .tab-panels ul li:hover {
@@ -41,7 +55,11 @@
 
     .tab-panels .panel {
         display:none;
-        background: #c9c9c9;
+        background: rgb(1,181,234);
+        background: -moz-linear-gradient(223deg, rgba(1,181,234,1) 18%, rgba(1,140,242,1) 53%, rgba(0,212,255,1) 100%);
+        background: -webkit-linear-gradient(223deg, rgba(1,181,234,1) 18%, rgba(1,140,242,1) 53%, rgba(0,212,255,1) 100%);
+        background: linear-gradient(223deg, rgba(1,181,234,1) 18%, rgba(1,140,242,1) 53%, rgba(0,212,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#01b5ea",endColorstr="#00d4ff",GradientType=1);
         padding: 30px;
         border-radius: 0 0 10px 10px;
     }
@@ -50,88 +68,105 @@
         display:block;
     }
 
+    hr {
+        margin: 2.5rem;
+    }
+
   </style>
 </head>
 <body>
   <div class="tab-panels">
     <ul class="tabs">
-      <li rel="panel1" class="active">panel1</li>
-      <li rel="panel2">panel2</li>
-      <li rel="panel3">panel3</li>
-      <li rel="panel4">panel4</li>
+        <li rel="panel1" class="active">Introduction</li>
+        <li rel="panel2">Features</li>
+        <li rel="panel3">Pricing</li>
+        <li rel="panel4">Contact</li>
     </ul>
     
     <div id="panel1" class="panel active">
-      content1<br/>
-      content1<br/>
-      content1<br/>
-      content1<br/>
-      content1<br/>
+        <p>Welcome to our website! We specialize in providing high-quality products and services to meet your needs.</p>
+        <p>Our company has been in business for over a decade, serving thousands of satisfied customers.</p>
+        <p>Feel free to explore our website and learn more about what we have to offer.</p>
     </div>
     
     <div id="panel2" class="panel">
-      content2<br/>
-      content2<br/>
-      content2<br/>
-      content2<br/>
-      content2<br/>
+        <p>Discover the amazing features that set us apart from the competition:</p>
+        <ul>
+            <li>Advanced customization options</li>
+            <li>24/7 customer support</li>
+            <li>Fast and secure payment processing</li>
+            <li>Integration with popular platforms</li>
+        </ul>
     </div>
 
     <div id="panel3" class="panel">
-      content3<br/>
-      content3<br/>
-      content3<br/>
-      content3<br/>
-      content3<br/>
+        <p>Take a look at our flexible pricing plans tailored to fit your budget:</p>
+        <ul>
+            <li>Basic Plan: $9.99/month</li>
+            <li>Standard Plan: $19.99/month</li>
+            <li>Premium Plan: $29.99/month</li>
+        </ul>
+        <p>Choose the plan that suits your needs and get started today!</p>
     </div>
 
     <div id="panel4" class="panel">
-      content4<br/>
-      content4<br/>
-      content4<br/>
-      content4<br/>
-      content4<br/>
+        <p>Have questions or need assistance? Contact our friendly team for personalized support:</p>
+        <ul>
+            <li>Email: support@example.com</li>
+            <li>Phone: 1-800-123-4567</li>
+            <li>Live Chat: Available during business hours</li>
+        </ul>
+        <p>We're here to help you every step of the way!</p>
     </div>
+</div>
 
-  </div>
+<hr>
 
-  <div class="tab-panels">
+<div class="tab-panels">
     <ul class="tabs">
-        <li rel="panel5" class="active">panel5</li>
-        <li rel="panel6">panel6</li>
-        <li rel="panel7">panel7</li>
-        <li rel="panel8">panel8</li>
+        <li rel="panel5" class="active">About Us</li>
+        <li rel="panel6">Our Team</li>
+        <li rel="panel7">Testimonials</li>
+        <li rel="panel8">FAQ</li>
     </ul>
 
     <div id="panel5" class="panel active">
-        content5<br/>
-        content5<br/>
-        content5<br/>
-        content5<br/>
-        content5<br/>
+        <p>Learn more about our company and our mission:</p>
+        <p>At XYZ Company, we strive to deliver exceptional products and services while maintaining the highest standards of integrity and professionalism.</p>
+        <p>Discover what sets us apart and why customers choose us for all their needs.</p>
     </div>
     <div id="panel6" class="panel">
-        content6<br/>
-        content6<br/>
-        content6<br/>
-        content6<br/>
-        content6<br/>
+        <p>Meet the talented individuals who make up our dedicated team:</p>
+        <ul>
+            <li>John Doe - CEO</li>
+            <li>Jane Smith - CTO</li>
+            <li>David Johnson - CFO</li>
+            <li>Sarah Williams - Head of Marketing</li>
+        </ul>
     </div>
     <div id="panel7" class="panel">
-        content7<br/>
-        content7<br/>
-        content7<br/>
-        content7<br/>
-        content7<br/>
+        <p>Read what our satisfied customers have to say about their experience with us:</p>
+        <blockquote>
+            "XYZ Company exceeded my expectations. Their attention to detail and commitment to customer satisfaction are truly commendable."
+            <cite>- Amanda Thompson</cite>
+        </blockquote>
+        <blockquote>
+            "I've been a loyal customer of XYZ Company for years. Their products are top-notch and their customer service is unmatched."
+            <cite>- Mark Davis</cite>
+        </blockquote>
     </div>
     <div id="panel8" class="panel">
-        content8<br/>
-        content8<br/>
-        content8<br/>
-        content8<br/>
-        content8<br/>
+        <p>Find answers to commonly asked questions:</p>
+        <ul>
+            <li>How can I place an order?</li>
+            <li>What payment methods do you accept?</li>
+            <li>How long does shipping take?</li>
+            <li>Do you offer refunds or exchanges?</li>
+        </ul>
+        <p>If you have a question that isn't listed here, feel free to contact us for assistance!</p>
     </div>
 </div>
+
   <script src="jquery.js"></script>
   <script>
 
