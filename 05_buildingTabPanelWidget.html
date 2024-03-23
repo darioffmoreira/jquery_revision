@@ -94,36 +94,74 @@
     </div>
 
   </div>
+
+  <div class="tab-panels">
+    <ul class="tabs">
+        <li rel="panel5" class="active">panel5</li>
+        <li rel="panel6">panel6</li>
+        <li rel="panel7">panel7</li>
+        <li rel="panel8">panel8</li>
+    </ul>
+
+    <div id="panel5" class="panel active">
+        content5<br/>
+        content5<br/>
+        content5<br/>
+        content5<br/>
+        content5<br/>
+    </div>
+    <div id="panel6" class="panel">
+        content6<br/>
+        content6<br/>
+        content6<br/>
+        content6<br/>
+        content6<br/>
+    </div>
+    <div id="panel7" class="panel">
+        content7<br/>
+        content7<br/>
+        content7<br/>
+        content7<br/>
+        content7<br/>
+    </div>
+    <div id="panel8" class="panel">
+        content8<br/>
+        content8<br/>
+        content8<br/>
+        content8<br/>
+        content8<br/>
+    </div>
+</div>
   <script src="jquery.js"></script>
   <script>
+
     $(function() {
 
-      // Add a click event handler to all <li> elements within ".tabs" that are children of ".tab-panels"
       $(".tab-panels .tabs li").on("click", function(e) {
-        // Remove the "active" class from the previously active <li> element
-        $(".tab-panels .tabs li.active").removeClass("active");
-        // Add the "active" class to the clicked <li> element
+
+        let $panel = $(this).closest(".tab-panels");
+        // Find the closest parent element with class "tab-panels"
+        
+        // Remove the "active" class from all li elements inside the tabs class within the current panel
+        $panel.find(".tabs li.active").removeClass("active");
+        
+        // Add the "active" class to the clicked tab
         $(this).addClass("active");
-
-        // figure out which panel to show
-        // Get the value of the "rel" attribute of the clicked <li> element
+        
+        // Get the value of the "rel" attribute of the clicked tab
         let panelToShow = $(this).attr("rel");
-        // alert(panelToShow);
 
-        // hide current panel
-        /*
-        ** Slide up all panels that have the ".panel.active" class within ".tab-panels"
-        ** This is done over 300 milliseconds to give a sliding animation effect
-        */
-        $(".tab-panels .panel.active").slideUp(300, showNextPanel);
-
-        // show new panel
+        // Slide up the panel that is currently active within the current panel
+        $panel.find(".panel.active").slideUp(300, showNextPanel);
+        
+        // Function to handle the slide animation of the next panel
         function showNextPanel() {
-          // Remove the "active" class from the panel that was just slid up
+          // Remove the "active" class from the panel that was just hidden
           $(this).removeClass("active");
-          // After the slide up animation is complete, slide down the panel with the ID stored in the variable "panelToShow"
+          
+          // Slide down the panel identified by the panelToShow variable
           $("#" + panelToShow).slideDown(300, function () {
-            // After the panel slides down, add the "active" class to it
+            // Add the "active" class to the newly shown panel
             $(this).addClass("active");
           });
         }
@@ -131,6 +169,20 @@
       });
 
     });
+
+    /*
+    * Add a click event handler to all <li> elements within ".tabs" that are children of ".tab-panels"
+    * Remove the "active" class from the previously active <li> element
+    * Add the "active" class to the clicked <li> element
+    * Get the value of the "rel" attribute of the clicked <li> element
+    * hide current panel
+    * Slide up all panels that have the ".panel.active" class within ".tab-panels"
+    * This is done over 300 milliseconds to give a sliding animation effect
+    * Callback function to handle the slide animation of the next panel
+    * Remove the "active" class from the panel that was just slid up
+    * After the slide up animation is complete, slide down the panel with the ID stored in the variable "panelToShow"
+    * After the panel slides down, add the "active" class to it
+    */
   </script>
 </body>
 </html>
