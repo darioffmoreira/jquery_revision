@@ -46,7 +46,11 @@ This HTML file showcases various DOM traversal techniques using jQuery. It demon
 
 ### `05_buildingTabPanelWidget.html`: An example file demonstrating the implementation of a tab panel widget using jQuery.
 
+This file demonstrates a tab panel widget built using jQuery. It enables users to toggle between content sections by clicking on tabs, enhancing user interaction. The HTML showcases jQuery usage for dynamic content display, serving as a valuable reference for tab-based navigation in web applications.
+
 ### `06_buildingJqueryImageSlider.html`: An example file showcasing the implementation of a jQuery image slider.
+
+This file showcases a jQuery image slider implementation. It features smooth transitions between images, customizable animation speed, and pause functionality. Users can pause/resume the slider by clicking a button or hovering over it. The HTML illustrates jQuery integration for creating a versatile image slider in web projects.
 
 ## Contributing
 
