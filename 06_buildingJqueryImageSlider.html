@@ -54,13 +54,18 @@
   <script>
     'use strict';
 
-    // let myInterval = setInterval(function() {
-    //   console.log(new Date());
-    // }, 1000);
+    $(function () {
+      
+      // configuration options
+      let widthSlider = 720;
+      let animationSpeed = 1000;
+      let pause = 3000;
 
-    setInterval(function() {
-      $("#slider .slides").animate({marginLeft: '-=720px'}, 1000);
-    }, 3000);
+      setInterval(function() {
+        $("#slider .slides").animate({marginLeft: `-=${widthSlider}`}, animationSpeed);
+      }, pause);
+
+    });
 
     // setInterval
       // animate margin-left
